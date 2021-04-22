@@ -1,0 +1,78 @@
+plugins {
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+}
+
+allprojects {
+    apply plugin: 'java'
+
+    sourceSets {
+        main {
+            java { srcDirs = ['main/java'] }
+            resources { srcDirs = ['main/resources']}
+        }
+        test {
+            java { srcDirs = ['test'] }
+        }
+    }
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+
+        compile 'org.springframework.boot:spring-boot-starter-actuator'
+
+        compileOnly 'org.projectlombok:lombok:1.18.16'
+        annotationProcessor 'org.projectlombok:lombok:1.18.16'
+        implementation 'org.springdoc:springdoc-openapi-ui:1.4.6'
+        compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+    }
+
+    task hello {
+        doLast { task ->
+            println "I'm $task.project.name"
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java-library'
+
+    group = "cl.duamit.${rootProject.name}"
+
+    sourceCompatibility = 11
+    targetCompatibility = 11
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.boot:spring-boot-dependencies:2.4.0")
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
+
+        reports {
+            html.enabled = true
+        }
+    }
+}
+
+/* -------------------------------- */
+/* - Include other gradle scripts - */
+/* -------------------------------- */
+def gradlePath = "${rootProject.projectDir}${project.property('gradle.path')}"
+//apply from: "${gradlePath}/build-config.gradle"
+//apply from: "${gradlePath}/build-java.gradle"
+//apply from: "${gradlePath}/build-sonar.gradle"
+//apply from: "${gradlePath}/build-artifact.gradle"
+//apply from: "${gradlePath}/build-dependencies.gradle"
+

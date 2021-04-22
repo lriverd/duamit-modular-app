@@ -1,0 +1,5 @@
+rootProject.name = 'duamit-modular-app'
+
+include 'applications'
+include 'src:pharmacy'
+
