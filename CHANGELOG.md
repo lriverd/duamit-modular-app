@@ -11,3 +11,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * **API**: Open Pharmacys API
 * **GeolocationCalculator**: geolocation distance calculator
 * **PharmacyRestService**: pharmacy rest service to get turns
+* **Bank**: Bank List API
+* **Shared**: Common things on shared project

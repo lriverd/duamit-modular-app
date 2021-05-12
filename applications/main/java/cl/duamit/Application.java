@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "cl.duamit")
 public class Application implements CommandLineRunner {
 
 	public static void main(String[] args) {
