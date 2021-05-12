@@ -1,0 +1,35 @@
+# ==================================================================================== #
+# APPLICATION CONFIGURATION
+# ==================================================================================== #
+server:
+  port: 8080
+  servlet:
+    context-path: /modular
+
+springdoc:
+  version: '@springdoc.version@'
+
+spring:
+  application:
+    name: modular app
+    profiles: dev
+  profiles:
+    active: dev
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+
+
+# Security
+security:
+  jwt:
+    secret: HUnu6O78pb765-BsaBth-gKbTY6-7B65G68bH8H$$+J-GI
+    timeExp: 3600000000
+
+# Requirement Validation
+api:
+  rpmratio: 25
+
+
+
+

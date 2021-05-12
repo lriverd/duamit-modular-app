@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/bank/db.changelog-1.0.yaml
+  - include:
+      file: db/changelog/bank/structure/create.sql
+  - include:
+      file: db/changelog/bank/data/banks.sql
