@@ -21,3 +21,4 @@ Please read the [contribution guidelines](CONTRIBUTING.md) first.
 
 ## Changelog
 You can find the changelog [here](CHANGELOG.md)
+
