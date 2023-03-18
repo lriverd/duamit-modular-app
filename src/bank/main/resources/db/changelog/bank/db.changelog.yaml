@@ -1,5 +1,0 @@
-databaseChangeLog:
-  - include:
-      file: structure/create.sql
-  - include:
-      file: data/banks.sql

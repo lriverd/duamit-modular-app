@@ -1,0 +1,26 @@
+# ==================================================================================== #
+# APPLICATION CONFIGURATION
+# ==================================================================================== #
+
+spring:
+  application:
+    name: location-module
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+  datasource:
+    url: jdbc:h2:mem:locationDb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      path: /h2
+      enabled: true
+  liquibase:
+    enabled: true
+    change-log: 'classpath:db/changelog/db.changelog-location.yaml'
+
+

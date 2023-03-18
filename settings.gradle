@@ -1,7 +1,8 @@
 rootProject.name = 'duamit-modular-app'
 
-include 'applications'
-include 'src:pharmacy'
-include 'src:bank'
-include 'src:shared'
+include 'application'
+include 'pharmacy'
+include 'bank'
+include 'shared'
+include 'location'
 

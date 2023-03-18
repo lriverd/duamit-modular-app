@@ -1,0 +1,24 @@
+# ==================================================================================== #
+# APPLICATION CONFIGURATION
+# ==================================================================================== #
+spring:
+  application:
+    name: ms-pharmacys-turn
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+
+# ==================================================================================== #
+# REST SERVICES
+# ==================================================================================== #
+# Pharmacy minsal source
+# ------------------------------ #
+pharmacy:
+  host: https://farmanet.minsal.cl/
+  turns:
+    tmpl-url: ${pharmacy.host}/index.php/ws/getLocalesTurnos
+logging:
+  level:
+    liquibase: INFO
+
+

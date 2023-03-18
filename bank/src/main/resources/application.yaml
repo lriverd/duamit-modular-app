@@ -1,0 +1,24 @@
+# ==================================================================================== #
+# APPLICATION CONFIGURATION
+# ==================================================================================== #
+
+spring:
+  application:
+    name: ms-bank
+  datasource:
+    url: jdbc:h2:mem:banksDB
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      path: /h2
+      enabled: true
+  liquibase:
+    enabled: true
+
+
+
+

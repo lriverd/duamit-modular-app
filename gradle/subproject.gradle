@@ -1,0 +1,47 @@
+subprojects {
+    group "cl.duamit.${rootProject.name}"
+    version = '0.0.1'
+
+    sourceSets {
+        main {
+            java { srcDirs = ['main/java'] }
+            resources { srcDirs = ['main/resources'] }
+        }
+
+        test {
+            java { srcDirs = ['test/java'] }
+            resources { srcDirs = ['test/resources'] }
+        }
+    }
+
+    bootJar {
+        enabled = false
+    }
+
+    jar {
+        enabled = true
+    }
+
+    bootRun {
+        enabled = false
+    }
+
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
+        testImplementation rootProject.sourceSets.main.output
+        if (project.name != "shared") {
+            implementation project(":shared")
+            testImplementation project(":shared").sourceSets.test.output
+        }
+    }
+
+
+    test {
+        useJUnitPlatform()
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
+    }
+
+
+}
