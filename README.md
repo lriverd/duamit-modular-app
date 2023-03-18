@@ -3,10 +3,15 @@
 > ℹ️ java proyect with multiple rest api imlplementations
 
 ## ☝️ Dependencies
-
-* Java 11
+* Java 17
 * Gradle (Wrapper included)
 * Docker (if you want to run integration test)
+
+## 🗄️ Modules
+* **bank**: Service with a list of chilean banks
+* **location**: Service with geographic chilean division
+* **pharmacy**: Find near pharmacy, or find by location name
+* **shared**: All commons objects and utils
 
 ## 🏁 Install and Run
 
