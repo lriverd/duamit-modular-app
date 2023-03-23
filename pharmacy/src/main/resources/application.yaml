@@ -14,9 +14,13 @@ spring:
 # Pharmacy minsal source
 # ------------------------------ #
 pharmacy:
-  host: https://farmanet.minsal.cl/
+  farmanet-host: https://farmanet.minsal.cl/
+  minsal-host: https://midas.minsal.cl
   turns:
-    tmpl-url: ${pharmacy.host}/index.php/ws/getLocalesTurnos
+    url: ${pharmacy.farmanet-host}/index.php/ws/getLocalesTurnos
+  premises:
+    url: ${pharmacy.minsal-host}/farmacia_v2/WS/getLocales.php
+
 logging:
   level:
     liquibase: INFO

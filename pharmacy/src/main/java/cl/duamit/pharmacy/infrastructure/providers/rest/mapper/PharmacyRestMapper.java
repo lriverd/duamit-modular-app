@@ -2,7 +2,9 @@ package cl.duamit.pharmacy.infrastructure.providers.rest.mapper;
 
 import cl.duamit.pharmacy.domain.entities.Address;
 import cl.duamit.pharmacy.domain.entities.Coordinates;
+import cl.duamit.pharmacy.domain.entities.Location;
 import cl.duamit.pharmacy.domain.entities.Pharmacy;
+import cl.duamit.pharmacy.domain.valueobjects.LocationType;
 import cl.duamit.pharmacy.infrastructure.providers.rest.model.PharmacyRest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -34,7 +36,8 @@ public class PharmacyRestMapper {
 
 		Address address = new Address();
 		address.setAddress(pharmacyRest.getLocalDireccion());
-		address.setLocality(pharmacyRest.getLocalidadNombre());
+		address.setLocality(Location.builder().type(LocationType.LOCALITY).name(pharmacyRest.getLocalidadNombre()).id(pharmacyRest.getFkLocalidad()).build());
+		address.setCommune(Location.builder().type(LocationType.COMMUNE).name(pharmacyRest.getComunaNombre()).id(pharmacyRest.getFkComuna()).build());
 		address.setCoordinates(c);
 		response.setAddress(address);
 

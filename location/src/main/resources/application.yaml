@@ -19,8 +19,3 @@ spring:
     console:
       path: /h2
       enabled: true
-  liquibase:
-    enabled: true
-    change-log: 'classpath:db/changelog/db.changelog-location.yaml'
-
-

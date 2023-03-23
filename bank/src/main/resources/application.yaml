@@ -16,8 +16,7 @@ spring:
     console:
       path: /h2
       enabled: true
-  liquibase:
-    enabled: true
+
 
 
 

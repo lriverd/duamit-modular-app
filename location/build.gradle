@@ -32,7 +32,6 @@ dependencies {
 
     //Database
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1'
-    implementation 'org.liquibase:liquibase-core:4.18.0'
     runtimeOnly 'com.h2database:h2:1.4.200'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'

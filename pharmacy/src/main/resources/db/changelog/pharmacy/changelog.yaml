@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/pharmacy/structure/create.yaml
+

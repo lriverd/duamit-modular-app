@@ -1,7 +1,8 @@
-package cl.duamit.pharmacy.infrastructure.providers.rest;
+package cl.duamit.pharmacy.infrastructure.providers.rest.farmanet;
 
 import cl.duamit.pharmacy.domain.entities.Pharmacy;
-import cl.duamit.pharmacy.domain.repositories.PharmacysTurn;
+import cl.duamit.pharmacy.domain.repositories.PharmacyRepository;
+import cl.duamit.pharmacy.infrastructure.providers.rest.AbstractRestService;
 import cl.duamit.pharmacy.infrastructure.providers.rest.mapper.PharmacyRestMapper;
 import cl.duamit.pharmacy.infrastructure.providers.rest.model.PharmacyRest;
 import lombok.extern.slf4j.Slf4j;
@@ -20,17 +21,14 @@ import java.util.List;
 @Service
 @Slf4j
 @ConfigurationProperties(prefix = "pharmacy.turns")
-public class PharmacysTurnService extends RestService implements PharmacysTurn {
-
-	@Autowired
-	PharmacyRestMapper pharmacyRestMapper;
+public class PharmacyTurnClient extends AbstractRestService {
 
 	public List<PharmacyRest> getRestPharmacy() {
 		setConverter();
 		getHttpHeaders().setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<String> requestEntity = new HttpEntity<String>(getHttpHeaders());
 		ResponseEntity<List<PharmacyRest>> rateResponse =
-			getRestTemplate().exchange(getTmplUrl(),
+			getRestTemplate().exchange(getUrl(),
 				HttpMethod.GET,
 				requestEntity,
 				new ParameterizedTypeReference<List<PharmacyRest>>() {
@@ -39,16 +37,4 @@ public class PharmacysTurnService extends RestService implements PharmacysTurn {
 		return rates;
 	}
 
-	@Override
-	public List<Pharmacy> getOpenPharmacy() {
-		List<Pharmacy> pharmacyList = new ArrayList<>();
-		getRestPharmacy().stream().forEach(prl -> {
-			try {
-				pharmacyList.add(pharmacyRestMapper.toPharmacy(prl));
-			} catch (Exception e) {
-				log.error("Cannot parse rest pharmacy", e);
-			}
-		});
-		return pharmacyList;
-	}
 }

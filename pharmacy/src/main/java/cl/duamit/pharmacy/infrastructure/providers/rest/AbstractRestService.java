@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.*;
 
 @Getter
-public abstract class RestService {
+public abstract class AbstractRestService {
 
 	private  Map<String, String> pathParams = new HashMap<>();
 	private Map<String, String> queryParams = new HashMap<>();
@@ -20,8 +20,6 @@ public abstract class RestService {
 
 	@Setter
 	private String url;
-	@Setter
-	private String tmplUrl;
 	private RestTemplate restTemplate;
 
 	public void setConverter() {
