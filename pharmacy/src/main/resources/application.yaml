@@ -16,10 +16,13 @@ spring:
 pharmacy:
   farmanet-host: https://farmanet.minsal.cl/
   minsal-host: https://midas.minsal.cl
+  seremienlinea-host: https://seremienlinea.minsal.cl
   turns:
     url: ${pharmacy.farmanet-host}/index.php/ws/getLocalesTurnos
   premises:
     url: ${pharmacy.minsal-host}/farmacia_v2/WS/getLocales.php
+  seremienlinea:
+    url: ${pharmacy.seremienlinea-host}/farmacias/mapa.php
 
 logging:
   level:

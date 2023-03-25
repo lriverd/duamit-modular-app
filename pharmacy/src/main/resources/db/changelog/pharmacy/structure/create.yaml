@@ -18,51 +18,63 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: local_name
-                  type: varchar(50)
+                  type: varchar(100)
               - column:
-                  name: reg_name
+                  name: addressee
                   type: varchar(100)
                   constraints:
                     nullable: false
+              - column:
+                  name: communne
+                  type: varchar(100)
+              - column:
+                  name: region
+                  type: varchar(100)
+              - column:
+                  name: open_at
+                  type: time
+              - column:
+                  name: close_at
+                  type: time
+              - column:
+                  name: phone
+                  type: varchar(15)
+              - column:
+                  name: latitude
+                  type: varchar(20)
+              - column:
+                  name: longitude
+                  type: varchar(20)
         - createTable:
-            tableName: LOC_PROVINCIA
+            tableName: PHAR_TURNS
             columns:
               - column:
-                  name: pro_id
+                  name: phar_id
                   type: varchar(6)
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: reg_id
-                  type: varchar(6)
-                  constraints:
-                    nullable: false
-                    foreignKeyName: fk_loc_reg_id
-                    references: LOC_REGION(reg_id)
-              - column:
-                  name: pro_name
-                  type: varchar(100)
+                  name: turn_date
+                  type: date
                   constraints:
                     nullable: false
         - createTable:
-            tableName: LOC_COMUNA
+            tableName: LOC_LOCALITY
             columns:
               - column:
-                  name: com_id
+                  name: loc_id
                   type: varchar(6)
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: pro_id
+                  name: loc_name
                   type: varchar(6)
                   constraints:
                     nullable: false
-                    foreignKeyName: fk_com_loc_id
-                    references: LOC_PROVINCIA(pro_id)
               - column:
-                  name: com_name
-                  type: varchar(100)
+                  name: loc_type
+                  type: varchar(20)
                   constraints:
                     nullable: false
