@@ -60,17 +60,17 @@ databaseChangeLog:
                   constraints:
                     nullable: false
         - createTable:
-            tableName: LOC_LOCALITY
+            tableName: PHA_COMUNA
             columns:
               - column:
-                  name: loc_id
+                  name: com_id
                   type: varchar(6)
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: loc_name
-                  type: varchar(6)
+                  name: com_name
+                  type: varchar(50)
                   constraints:
                     nullable: false
               - column:
