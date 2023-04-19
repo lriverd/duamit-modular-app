@@ -29,6 +29,9 @@ dependencies {
 
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.15'
 
+    implementation 'org.liquibase:liquibase-core:4.21.1'
+    runtimeOnly 'com.h2database:h2:1.4.200'
+
     compileOnly 'org.projectlombok:lombok:1.18.26'
     annotationProcessor 'org.projectlombok:lombok:1.18.26'
 
