@@ -22,7 +22,6 @@ spring:
     property-naming-strategy: SNAKE_CASE
     default-property-inclusion: non_null
 
-
 # Security
 security:
   jwt:
@@ -33,6 +32,15 @@ security:
 api:
   rpmratio: 25
 
-
+pharmacy:
+  farmanet-host: https://farmanet.minsal.cl/
+  minsal-host: https://midas.minsal.cl
+  seremienlinea-host: https://seremienlinea.minsal.cl
+  turns:
+    url: ${pharmacy.farmanet-host}/index.php/ws/getLocalesTurnos
+  premises:
+    url: ${pharmacy.minsal-host}/farmacia_v2/WS/getLocales.php
+  seremienlinea:
+    url: ${pharmacy.seremienlinea-host}/farmacias/mapa.php
 
 

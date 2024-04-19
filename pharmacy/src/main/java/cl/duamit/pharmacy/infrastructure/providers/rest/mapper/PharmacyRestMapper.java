@@ -21,6 +21,7 @@ public class PharmacyRestMapper {
 	public Pharmacy toPharmacy(PharmacyRest pharmacyRest) throws Exception{
 		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		DateTimeFormatter dateFormatter2 = DateTimeFormatter.ofPattern("dd-MM-yy");
 		Pharmacy response = new Pharmacy();
 		response.setId(pharmacyRest.getLocalId());
 		response.setName(pharmacyRest.getLocalNombre().replaceAll("FARMACIA ", ""));
@@ -40,8 +41,17 @@ public class PharmacyRestMapper {
 		address.setCommune(Location.builder().type(LocationType.COMMUNE).name(pharmacyRest.getComunaNombre()).id(pharmacyRest.getFkComuna()).build());
 		address.setCoordinates(c);
 		response.setAddress(address);
+		LocalDate date = LocalDate.now();
 
-		LocalDate date = LocalDate.parse(pharmacyRest.getFecha(), dateFormatter);
+		try {
+			date = LocalDate.parse(pharmacyRest.getFecha(), dateFormatter);
+		}catch (Exception e){
+			try {
+				date = LocalDate.parse(pharmacyRest.getFecha(), dateFormatter2);
+			}catch (Exception e2) {
+				log.error("Error en el formato de la fecha", e2);
+			}
+		}
 
 		LocalTime timeFrom = LocalTime.parse(pharmacyRest.getFuncionamientoHoraApertura(), timeFormatter);
 		LocalTime timeTo = LocalTime.parse(pharmacyRest.getFuncionamientoHoraCierre(), timeFormatter);
